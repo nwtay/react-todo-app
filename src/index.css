@@ -1,0 +1,27 @@
+body {
+    background: url('https://images.unsplash.com/photo-1630551804448-b2afb38443ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+
+.nav.nav-tabs .nav-link.active {
+    background-color: rgb(60, 135, 181);
+    color: white;
+}
+
+.nav.nav-tabs .nav-link {
+  color: rgb(60, 135, 181);
+}
+
+.header-text {
+  color: rgb(60, 135, 181);
+}
+
+.list-group{
+  max-height: 420px;
+  margin-bottom: 10px;
+  overflow:scroll;
+  -webkit-overflow-scrolling: touch;
+}
