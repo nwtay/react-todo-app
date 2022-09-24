@@ -30,9 +30,15 @@ class ToDoList extends React.Component {
 
   render() {
     const todos = this.props.todos;
-    const filter = this.props.highlightedFilter;
+    let filter = this.props.highlightedFilter;
 
     if (filter !== "all") {
+      if (filter === "done") {
+        filter = true;
+      } else {
+        filter = false;
+      }
+
       const todo_array = todos
         .filter((todo) => todo["done"] === filter)
         .map((todo) => {

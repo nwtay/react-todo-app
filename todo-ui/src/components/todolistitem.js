@@ -23,7 +23,6 @@ class ToDoListItem extends React.Component {
   render() {
     let variant;
     let status;
-    console.log(this.props.done);
     if (this.props.done === false) {
       variant = "danger";
       status = "To Do";

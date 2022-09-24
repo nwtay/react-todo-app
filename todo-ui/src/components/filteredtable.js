@@ -27,7 +27,6 @@ class FilteredTable extends React.Component {
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(result);
           this.setState({
             isLoaded: true,
             todos: result,
