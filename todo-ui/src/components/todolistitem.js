@@ -14,16 +14,17 @@ class ToDoListItem extends React.Component {
   handleStatusChange(e) {
     const itemIdentifier = this.props.id;
     if (e.target.value === "Done") {
-      this.props.onStatusChange("done", itemIdentifier);
+      this.props.onStatusChange(true, itemIdentifier);
     } else {
-      this.props.onStatusChange("to-do", itemIdentifier);
+      this.props.onStatusChange(false, itemIdentifier);
     }
   }
 
   render() {
     let variant;
     let status;
-    if (this.props.toDoStatus === "to-do") {
+    console.log(this.props.done);
+    if (this.props.done === false) {
       variant = "danger";
       status = "To Do";
     } else {
@@ -34,7 +35,7 @@ class ToDoListItem extends React.Component {
     return (
       <ListGroup.Item variant={variant}>
         <Row>
-          <Col>{this.props.toDoName}</Col>
+          <Col>{this.props.name}</Col>
           <Col>{status}</Col>
           <Col>
             {" "}

@@ -4,7 +4,6 @@ import Card from "react-bootstrap/Card";
 import AddItem from "./additem";
 import Selection from "./selection";
 import ToDoList from "./todolist";
-import ORIGINAL_TODOS from "../originaltodos";
 
 class FilteredTable extends React.Component {
   constructor(props) {
@@ -50,7 +49,7 @@ class FilteredTable extends React.Component {
     const todos = this.state.todos.slice();
     // replace the todo with the same id as itemIdentifier
     var foundIndex = todos.findIndex((item) => item.id === itemIdentifier);
-    todos[foundIndex].toDoStatus = updatedStatus;
+    todos[foundIndex].done = updatedStatus;
     this.setState({ todos: todos });
   }
 
@@ -63,8 +62,8 @@ class FilteredTable extends React.Component {
   handleAddition(itemName) {
     const todos = this.state.todos.slice();
     todos.unshift({
-      toDoName: itemName,
-      toDoStatus: "to-do",
+      name: itemName,
+      done: "to-do",
       id: todos.length,
     });
     this.setState({ todos: todos });

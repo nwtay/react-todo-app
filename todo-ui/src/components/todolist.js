@@ -21,8 +21,8 @@ class ToDoList extends React.Component {
       <ToDoListItem
         key={todo["id"]}
         id={todo["id"]}
-        toDoName={todo["toDoName"]}
-        toDoStatus={todo["toDoStatus"]}
+        name={todo["name"]}
+        done={todo["done"]}
         onStatusChange={this.handleStatusChange}
       ></ToDoListItem>
     );
@@ -34,7 +34,7 @@ class ToDoList extends React.Component {
 
     if (filter !== "all") {
       const todo_array = todos
-        .filter((todo) => todo["toDoStatus"] === filter)
+        .filter((todo) => todo["done"] === filter)
         .map((todo) => {
           todo = this.renderToDoListItem(todo["id"]);
           return todo;
