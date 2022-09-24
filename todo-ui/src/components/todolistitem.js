@@ -34,7 +34,7 @@ class ToDoListItem extends React.Component {
     return (
       <ListGroup.Item variant={variant}>
         <Row>
-          <Col>{this.props.toDoName}</Col>
+          <Col>{this.props.name}</Col>
           <Col>{status}</Col>
           <Col>
             {" "}

@@ -21,8 +21,8 @@ class ToDoList extends React.Component {
       <ToDoListItem
         key={todo["id"]}
         id={todo["id"]}
-        toDoName={todo["toDoName"]}
-        toDoStatus={todo["toDoStatus"]}
+        name={todo["name"]}
+        done={todo["done"]}
         onStatusChange={this.handleStatusChange}
       ></ToDoListItem>
     );
