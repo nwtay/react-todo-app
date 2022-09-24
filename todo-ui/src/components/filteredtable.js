@@ -11,12 +11,39 @@ class FilteredTable extends React.Component {
     super(props);
     this.state = {
       highlightedFilter: "all",
-      todos: ORIGINAL_TODOS,
+      isLoaded: false,
+      error: null,
+      todos: [],
     };
 
     this.handleSelectionChange = this.handleSelectionChange.bind(this);
     this.handleStatusChange = this.handleStatusChange.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
+  }
+
+  // populate data with API calls should be called in componentDidMount lifecycle method, so
+  // can use setState to update component when data is retrieved (asynchronous calls)
+  componentDidMount() {
+    fetch("http://localhost:8080")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          console.log(result);
+          this.setState({
+            isLoaded: true,
+            todos: result,
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error,
+          });
+        }
+      );
   }
 
   handleStatusChange(updatedStatus, itemIdentifier) {
